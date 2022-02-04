@@ -1,7 +1,7 @@
-import IFileVersionSystem from "./IFileVersionSystem";
+import IVersionControlSystem from "./IVersionControlSystem";
 
 export class VcsTests {
-    private _vcs: IFileVersionSystem;
+    private _vcs: IVersionControlSystem;
   
     constructor() {
         // Dependency injector

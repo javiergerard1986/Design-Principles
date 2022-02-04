@@ -1,6 +1,6 @@
-import IFileVersionSystem from "./IFileVersionSystem";
+import IVersionControlSystem from "./IVersionControlSystem";
 
-export class bitBucketUtils implements IFileVersionSystem{
+export class tortoiseSvn implements IVersionControlSystem{
     
     cloneProject(projectName: string, newProjectName: string): void {};
   

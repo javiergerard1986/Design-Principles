@@ -1,4 +1,4 @@
-export default interface IVersionSystem {
+export default interface IFileVersionSystem {
 
     cloneProject(projectName: string, newProjectName: string): void;
   

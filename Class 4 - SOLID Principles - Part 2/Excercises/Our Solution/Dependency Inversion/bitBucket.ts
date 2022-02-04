@@ -1,6 +1,6 @@
-import IFileVersionSystem from "./IFileVersionSystem";
+import IVersionControlSystem from "./IVersionControlSystem";
 
-export class gitUtils implements IFileVersionSystem{
+export class bitBucket implements IVersionControlSystem{
     
     cloneProject(projectName: string, newProjectName: string): void {};
   
