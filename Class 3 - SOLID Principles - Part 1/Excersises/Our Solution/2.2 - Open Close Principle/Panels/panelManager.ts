@@ -7,10 +7,7 @@ export class PanelManager {
     
     loadPanels(): PanelBase[] {
         let panels: PanelBase[];
-        let propertiesPanel: PanelBase = new PropertiesPanel();
-        let toolboxPanel: PanelBase = new ToolboxPanel();
-        let customPanel: PanelBase = new MyCustomPanel();
-        panels.push(propertiesPanel, toolboxPanel, customPanel);
+        panels.push(new PropertiesPanel(), new ToolboxPanel(), new MyCustomPanel());
         return panels;
     }
 
