@@ -1,12 +1,6 @@
-import { IPanel } from "./IPanel";
+import { PropertiesPanel } from "./propertiesPanel";
 
-export class RaiderPropertiesPanel implements IPanel {
-    
-    _tabs: string[];
-    
-    getTabs(): string[] {
-        return this._tabs;
-    }
+export class RaiderPropertiesPanel extends PropertiesPanel {
 
     getPropertiesList(): string[] {
         return ['1', '2', '3'];
