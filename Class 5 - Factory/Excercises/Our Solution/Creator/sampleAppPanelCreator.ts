@@ -1,7 +1,7 @@
 import { SampleAppPropertiesPanel } from "../Panel/SampleAppPropertiesPanel";
-import { Environment } from "./environment";
+import { PanelCreator } from "./panelCreator";
 
-export class SampleAppEnvironment extends Environment {
+export class SampleAppPanelCreator extends PanelCreator {
     
     public createPropertiesPanel(): SampleAppPropertiesPanel {
         return new SampleAppPropertiesPanel();

@@ -1,5 +1,5 @@
-import { Environment } from "../Environment/environment";
+import { PanelCreator } from "../Creator/panelCreator";
 
 export interface IPlatformManager{
-    initialize(platform:string): Environment;
+    initialize(platform:string): PanelCreator;
 }
