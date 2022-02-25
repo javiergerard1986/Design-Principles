@@ -6,8 +6,14 @@ import { IPlatformManager } from "./IPlatformManager";
 
 export class PlatformManager implements IPlatformManager{
 
-    public initialize(platform: string): IAbstractFactory {
-        switch(platform){
+    _platform: string;
+
+    constructor() {
+        this._platform = PLATFORM.RAIDER;
+    }
+
+    public initialize(): IAbstractFactory {
+        switch(this._platform){
             case PLATFORM.RAIDER:
                 return new RaiderFactory();
             case PLATFORM.SAMPLE:

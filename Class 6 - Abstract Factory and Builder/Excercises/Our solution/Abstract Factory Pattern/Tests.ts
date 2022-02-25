@@ -8,13 +8,12 @@ export class Tests {
     
     platformManager: PlatformManager;
     factory: IAbstractFactory;
-    platform: string = PLATFORM.RAIDER;
     propertiesPanel: PropertiesPanel;
     toolbox: Toolbox;
 
     public setUp(): void{
         this.platformManager = new PlatformManager();
-        this.factory = this.platformManager.initialize(this.platform);
+        this.factory = this.platformManager.initialize();
         this.propertiesPanel = this.factory.createPropertiesPanel();
         this.toolbox = this.factory.createToolbox();
     };
