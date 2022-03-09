@@ -8,6 +8,7 @@ export class Facade {
     private _fsServices: FILE_SYSTEM_API_SIMULATOR;
 
     private constructor(){
+        this._ffmpegDependencyServices =  this._ffmpegDependencyServices.createFFmpeg({ log: true });
     }
 
     public static getInstance(): Facade {
@@ -19,32 +20,35 @@ export class Facade {
     }
 
     public recordE2EExecution(): void {
-        const ffmpegSimulator = this._ffmpegDependencyServices.createFFmpeg({ log: true });
-        ffmpegSimulator.load();
-        ffmpegSimulator.run();
-
-        const videoPath = this._fsServices.parseFilePath('./test_execution.mp4');
+        
+        this.loadAndRunFFMPEGSimulator();
+        
+        const videoPath: string  = this._fsServices.parseFilePath('./test_execution.mp4');
         this._fsServices.writeFile(videoPath);
 
-        ffmpegSimulator.writeFile(videoPath);
+        this._ffmpegDependencyServices.writeFile(videoPath);
 
-        ffmpegSimulator.record(videoPath);
-        ffmpegSimulator.stopRecording();
-        ffmpegSimulator.exit(0);
+        this._ffmpegDependencyServices.record(videoPath);
+        this._ffmpegDependencyServices.stopRecording();
+        this._ffmpegDependencyServices.exit(0);
     }
 
     public generateSummary(): void {
-        const ffmpegSimulator = this._ffmpegDependencyServices.createFFmpeg({ log: true });
-        ffmpegSimulator.load();
-        ffmpegSimulator.run();
+        
+        this.loadAndRunFFMPEGSimulator();
 
         const videoPath: string = this._fsServices.parseFilePath('./test_execution.mp4');
 
-        const preview: string = ffmpegSimulator.generatePreview(videoPath, { format: 'png' });
+        const preview: string = this._ffmpegDependencyServices.generatePreview(videoPath, { format: 'png' });
 
         this._fsServices.writeFile(preview);
 
-        ffmpegSimulator.exit(0);
+        this._ffmpegDependencyServices.exit(0);
+    }
+
+    private loadAndRunFFMPEGSimulator(): void {
+        this._ffmpegDependencyServices.load();
+        this._ffmpegDependencyServices.run();
     }
 
 
