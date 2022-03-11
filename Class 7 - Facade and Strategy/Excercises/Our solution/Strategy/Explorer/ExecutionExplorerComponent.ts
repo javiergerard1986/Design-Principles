@@ -1,6 +1,6 @@
-import { IExplorerPanel} from "./IExplorerPanel";
+import { IControllerStrategy} from "./IControllerStrategy";
 
-export class ExecutionExplorerPanel implements IExplorerPanel{
+export class ExecutionExplorerComponent implements IControllerStrategy{
     
     createController(name: string): void {
         console.log("Create " + name +  " controller from Execution Explorer Panel");

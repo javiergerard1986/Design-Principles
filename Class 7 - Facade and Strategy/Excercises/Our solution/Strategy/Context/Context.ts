@@ -1,23 +1,25 @@
-import { IExplorerPanel } from "../Panel/IExplorerPanel";
-import { ExecutionExplorerPanel } from "../Panel/ExecutionExplorerPanel";
-import { DeviceExplorerPanel } from "../Panel/DeviceExplorerPanel";
+import { IControllerStrategy } from "../Explorer/IControllerStrategy";
+import { ExecutionExplorerComponent } from "../Explorer/ExecutionExplorerComponent";
+import { DeviceExplorerComponent } from "../Explorer/DeviceExplorerComponent";
 
 export class Context {
 
-    private _explorerPanel: IExplorerPanel;
+    private _strategy: IControllerStrategy;
 
     constructor(){
     }
 
-    public getExplorerPanel(): IExplorerPanel{
-        return this._explorerPanel;
+
+    public setStrategy(strategy: IControllerStrategy): void {        
+        this._strategy = strategy;
     }
 
-    public setContext(featureFlagAvailable: boolean): void {        
-        if (featureFlagAvailable) {
-            this._explorerPanel = new DeviceExplorerPanel();
-        } else {
-            this._explorerPanel = new ExecutionExplorerPanel();
-        }
+    public createController(name: string): void {
+        this._strategy.createController(name);
     }
+
+    public deleteController(name: string): void {
+        this._strategy.deleteController(name);
+    }
+
 }

@@ -1,4 +1,6 @@
 import { Context } from "../Context/Context";
+import { DeviceExplorerComponent } from "../Explorer/DeviceExplorerComponent";
+import { ExecutionExplorerComponent } from "../Explorer/ExecutionExplorerComponent";
 import { FeatureFlagsService } from "../FeatureFlagsService/FeatureFlagsService";
 
 export class ExplorerTestsSuite {
@@ -12,7 +14,11 @@ export class ExplorerTestsSuite {
     }
   
     public setup(): void {
-        this._context.setContext(this._featuresFlagsService.isFeatureFlagAvailable('DEVICE_UI'));
+      if (this._featuresFlagsService.isFeatureFlagAvailable('DEVICE_UI')) {
+        this._context.setStrategy(new ExecutionExplorerComponent());
+      } else {
+        this._context.setStrategy(new DeviceExplorerComponent());
+      }
     }
       
   
@@ -23,13 +29,13 @@ export class ExplorerTestsSuite {
       // Step 3
   
       // Create a controller
-      this._context.getExplorerPanel().createController("Controller AZF");
+      this._context.createController("Controller AZF");
   
       // Do something else 
       // Step 4
       // Step 5
       // Step 6
-      this._context.getExplorerPanel().deleteController("Controller AZF");
+      this._context.deleteController("Controller AZF");
     }
 
 }

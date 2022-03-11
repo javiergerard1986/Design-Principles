@@ -1,6 +1,6 @@
-import { IExplorerPanel } from "./IExplorerPanel";
+import { IControllerStrategy } from "./IControllerStrategy";
 
-export class DeviceExplorerPanel implements IExplorerPanel {
+export class DeviceExplorerComponent implements IControllerStrategy {
     
     createController(name: string): void {
         console.log("Create " + name +  " controller from Device Explorer Panel");
