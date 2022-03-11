@@ -21,7 +21,6 @@ export class ExplorerTestsSuite {
       }
     }
       
-  
     public test(): void {
       // Do something
       // Step 1

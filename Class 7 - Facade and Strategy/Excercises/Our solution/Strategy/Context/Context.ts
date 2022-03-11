@@ -1,6 +1,4 @@
 import { IControllerStrategy } from "../Explorer/IControllerStrategy";
-import { ExecutionExplorerComponent } from "../Explorer/ExecutionExplorerComponent";
-import { DeviceExplorerComponent } from "../Explorer/DeviceExplorerComponent";
 
 export class Context {
 
@@ -8,7 +6,6 @@ export class Context {
 
     constructor(){
     }
-
 
     public setStrategy(strategy: IControllerStrategy): void {        
         this._strategy = strategy;
