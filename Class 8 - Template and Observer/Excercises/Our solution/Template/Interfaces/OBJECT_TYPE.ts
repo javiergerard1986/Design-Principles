@@ -1,0 +1,4 @@
+export enum OBJECT_TYPE {
+    INCONSISTENCY,
+    ANOMALY
+}
